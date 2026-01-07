@@ -11,8 +11,6 @@
 /* ************************************************************************** */
 
 #include "sha256.h"
-#include <iomanip>
-#include <ios>
 #include <iostream>
 #include <sstream>
 #include <string>
@@ -20,7 +18,7 @@
 #include "Block.h"
 
 Block::Block(uint32_t nindexin, const std::string &sdatain)
-    : _nindex(nindexin), _sdata(sdatain), _nnonce(-1), _ttime(nullptr) {}
+    : _nindex(nindexin), _sdata(sdatain), _nnonce(-1) {}
 
 Block::~Block() {}
 
@@ -45,6 +43,6 @@ void Block::mine_block(uint32_t ndifficulty) {
 
 std::string Block::_calc_hash() const {
   std::stringstream ss;
-  ss << _nindex << _ttime << _sdata << _nnonce << sprev_hash;
+  ss << _nindex << _sdata << _nnonce << sprev_hash;
   return sha256(ss.str());
 }

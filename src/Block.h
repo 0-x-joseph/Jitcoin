@@ -24,7 +24,7 @@ private:
   uint64_t _nnonce;
   std::string _sdata;
   std::string _shash;
-  time_t *_ttime;
+  time_t _ttime;
 
   std::string _calc_hash() const;
 
