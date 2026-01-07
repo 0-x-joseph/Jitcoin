@@ -11,25 +11,18 @@
 # **************************************************************************** #
 
 CC = c++
-CFLAGS = -Werror -Wextra -Wall
+CFLAGS = 
 LDFLAGS =
-PWD = $(pwd)
 
-BUILD_DIR = $(PWD)/build
-SRC_DIR = $(PWD)/src
+BUILD_DIR = build
+SRC_DIR = src
 
 SRC_FILES= $(SRC_DIR)/Block.cpp \
 					 $(SRC_DIR)/Blockchain.cpp \
 					 $(SRC_DIR)/sha256.cpp \
 					 $(SRC_DIR)/main.cpp
 
-EXE=jitcoin
-
-# create the build directory
-# cd $BUILD_DIR
-all:
-	echo $(PWD)
-	echo $(LDFLAGS)
+EXE=$(BUILD_DIR)/jitcoin
 
 all:$(EXE)
 
