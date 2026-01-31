@@ -36,6 +36,17 @@ impl Block {
         Hash::hash(self)
     }
 
+    pub fn calcualte_block_fees(
+        &self,
+        utxos: &HashMap<Hash, (bool, TransactionOutput)>,
+    ) -> Result<u64> {
+        let mut fees: u64 = 0;
+        for tx in &self.transactions {
+            fees += tx.calculate_fee(utxos)?;
+        }
+        Ok(fees)
+    }
+
     pub fn verify_coinbase_transaction(
         &self,
         predicted_block_height: u64,
